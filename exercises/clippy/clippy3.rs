@@ -1,9 +1,9 @@
 // clippy3.rs
-// 
-// Here's a couple more easy Clippy fixes, so you can see its utility.
-// No hints.
+//
+// Aquí hay un par de correcciones de Clippy más fáciles, para que puedas ver su utilidad.
+// Sin pistas.
 
-// I AM NOT DONE
+// NO ESTOY HECHO
 
 #[allow(unused_variables, unused_assignments)]
 fn main() {
@@ -16,15 +16,15 @@ fn main() {
         -1, -2, -3
         -4, -5, -6
     ];
-    println!("My array! Here it is: {:?}", my_arr);
+    println!("Mi array! Aquí está: {:?}", my_arr);
 
     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);
-    println!("This Vec is empty, see? {:?}", my_empty_vec);
+    println!("Este Vector está vacío, ves? {:?}", my_empty_vec);
 
     let mut value_a = 45;
     let mut value_b = 66;
     // Let's swap these two!
     value_a = value_b;
     value_b = value_a;
-    println!("value a: {}; value b: {}", value_a, value_b);
+    println!("valor a: {}; valor b: {}", value_a, value_b);
 }
