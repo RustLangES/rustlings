@@ -1,3 +1,10 @@
+<a name="5.6.1-ES"></a>
+## 5.6.1-ES (2023-10-09)
+
+#### Changed
+
+- Se tradujo el README y el CONTRIBUTING al español.
+
 <a name="5.6.1"></a>
 ## 5.6.1 (2023-09-18)
 

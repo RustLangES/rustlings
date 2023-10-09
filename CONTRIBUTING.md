@@ -1,130 +1,124 @@
-## Contributing to Rustlings
+## Contribuir a Rustlings
 
-First off, thanks for taking the time to contribute!! ❤️
+En primer lugar, ¡gracias por tomarte el tiempo para contribuir! ❤️
 
-### Quick Reference
+### Referencia Rápida
 
-I want to...
+Quiero...
 
-_add an exercise! ➡️ [read this](#addex) and then [open a Pull Request](#prs)_
+_agregar un ejercicio! ➡️ [lee esto](#addex) y luego [abre una Pull Request](#prs)_
 
-_update an outdated exercise! ➡️ [open a Pull Request](#prs)_
+_actualizar un ejercicio obsoleto! ➡️ [abre una Pull Request](#prs)_
 
-_report a bug! ➡️ [open an Issue](#issues)_
+_reportar un error! ➡️ [abre un problema (Issue)](#issues)_
 
-_fix a bug! ➡️ [open a Pull Request](#prs)_
+_corregir un error! ➡️ [abre una Pull Request](#prs)_
 
-_implement a new feature! ➡️ [open an Issue to discuss it first, then a Pull Request](#issues)_
+_implementar una nueva característica! ➡️ [abre un problema para discutirlo primero, luego una Pull Request](#issues)_
 
 <a name="#src"></a>
-### Working on the source code
+### Trabajando en el código fuente
 
-`rustlings` is basically a glorified `rustc` wrapper. Therefore the source code
-isn't really that complicated since the bulk of the work is done by `rustc`.
-`src/main.rs` contains a simple `argh` CLI that connects to most of the other source files.
+`rustlings` es básicamente un envoltorio glorificado de `rustc`. Por lo tanto, el código fuente no es realmente complicado, ya que la mayor parte del trabajo la realiza `rustc`. `src/main.rs` contiene una simple CLI de `argh` que se conecta a la mayoría de los otros archivos fuente.
 
 <a name="addex"></a>
-### Adding an exercise
+### Agregando un ejercicio
 
-The first step is to add the exercise! Name the file `exercises/yourTopic/yourTopicN.rs`, make sure to
-put in some helpful links, and link to sections of the book in `exercises/yourTopic/README.md`.
+¡El primer paso es agregar el ejercicio! Nombra el archivo `exercises/yourTopic/yourTopicN.rs`, asegúrate de
+poner algunos enlaces útiles y vincula a secciones del libro en `exercises/yourTopic/README.md`.
 
-Next make sure it runs with `rustlings`. The exercise metadata is stored in `info.toml`, under the `exercises` array. The order of the `exercises` array determines the order the exercises are run by `rustlings verify` and `rustlings watch`.
+Luego asegúrate de que se ejecute con `rustlings`. Los metadatos del ejercicio se almacenan en `info.toml`, bajo el array `exercises`. El orden del array `exercises` determina el orden en que se ejecutan los ejercicios con `rustlings verify` y `rustlings watch`.
 
-Add the metadata for your exercise in the correct order in the `exercises` array. If you are unsure of the correct ordering, add it at the bottom and ask in your pull request. The exercise metadata should contain the following:
+Agrega los metadatos de tu ejercicio en el orden correcto en el array `exercises`. Si no estás seguro del orden correcto, agrégalo al final y consulta en tu Pull Request. Los metadatos del ejercicio deben contener lo siguiente:
+
 ```diff
   ...
 + [[exercises]]
-+ name = "yourTopicN"
-+ path = "exercises/yourTopic/yourTopicN.rs"
++ name = "tuTemaN"
++ path = "exercises/tuTema/tuTemaN.rs"
 + mode = "compile"
 + hint = """
-+ Some kind of useful hint for your exercise."""
++ Alguna pista útil para tu ejercicio."""
   ...
 ```
 
-The `mode` attribute decides whether Rustlings will only compile your exercise, or compile and test it. If you have tests to verify in your exercise, choose `test`, otherwise `compile`. If you're working on a Clippy exercise, use `mode = "clippy"`.
+El atributo `mode` decide si Rustlings solo compilará tu ejercicio o lo compilará y lo probará. Si tienes pruebas para verificar en tu ejercicio, elige `test`; de lo contrario, elige `compile`. Si estás trabajando en un ejercicio de Clippy, usa `mode = "clippy"`.
 
-That's all! Feel free to put up a pull request.
+¡Eso es todo! Siéntete libre de presentar una Pull Request.
 
 <a name="issues"></a>
-### Issues
+### Problemas (Issues)
 
-You can open an issue [here](https://github.com/rust-lang/rustlings/issues/new).
-If you're reporting a bug, please include the output of the following commands:
+Puedes abrir un problema [aquí](https://github.com/RustLangEs/rustlings/issues/new).
+Si estás reportando un error, por favor incluye la salida de los siguientes comandos:
 
 - `rustc --version`
 - `rustlings --version`
 - `ls -la`
-- Your OS name and version
+- El nombre y la versión de tu sistema operativo
 
 <a name="prs"></a>
 ### Pull Requests
 
-Opening a pull request is as easy as forking the repository and committing your
-changes. There's a couple of things to watch out for:
+Abrir una Pull Request es tan fácil como hacer un fork del repositorio y comprometer tus
+cambios. Hay algunas cosas a tener en cuenta:
 
-#### Write correct commit messages
+#### Escribe mensajes de commit correctos
 
-We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/)
-specification.
-This means that you have to format your commit messages in a specific way. Say
-you're working on adding a new exercise called `foobar1.rs`. You could write
-the following commit message:
-
-```
-feat: add foobar1.rs exercise
-```
-
-If you're just fixing a bug, please use the `fix` type:
+Seguimos la especificación de [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/).
+Esto significa que debes formatear tus mensajes de commit de una manera específica. Supongamos
+que estás trabajando en agregar un nuevo ejercicio llamado `foobar1.rs`. Podrías escribir
+el siguiente mensaje de commit:
 
 ```
-fix(verify): make sure verify doesn't self-destruct
+feat: agrega ejercicio foobar1.rs
 ```
 
-The scope within the brackets is optional, but should be any of these:
-
-- `installation` (for the installation script)
-- `cli` (for general CLI changes)
-- `verify` (for the verification source file)
-- `watch` (for the watch functionality source)
-- `run` (for the run functionality source)
-- `EXERCISENAME` (if you're changing a specific exercise, or set of exercises,
-  substitute them here)
-
-When the commit also happens to close an existing issue, link it in the message
-body:
+Si solo estás corrigiendo un error, por favor utiliza el tipo `fix`:
 
 ```
-fix: update foobar
-
-closes #101029908
+fix(verify): asegura de que verify no se autodestruya
 ```
 
-If you're doing simple changes, like updating a book link, use `chore`:
+El scope dentro de los paréntesis es opcional, pero debería ser cualquiera de estos:
+
+- `installation` (para el script de instalación)
+- `cli` (para cambios generales en la CLI)
+- `verify` (para el archivo fuente de verificación)
+- `watch` (para la fuente de la funcionalidad de observación)
+- `run` (para la fuente de la funcionalidad de ejecución)
+- `NOMBREDELEJERCICIO` (si estás cambiando un ejercicio específico o un conjunto de ejercicios,
+  sustitúyelos aquí)
+
+Cuando el commit también cierra un problema existente, enlázalo en el cuerpo del mensaje:
 
 ```
-chore: update exercise1.rs book link
+fix: actualiza foobar
+
+cierra #101029908
 ```
 
-If you're updating documentation, use `docs`:
+Si estás haciendo cambios simples, como actualizar un enlace del libro, usa `chore`:
 
 ```
-docs: add more information to Readme
+chore: actualiza el enlace del libro en exercise1.rs
 ```
 
-If, and only if, you're absolutely sure you want to make a breaking change
-(please discuss this beforehand!), add an exclamation mark to the type and
-explain the breaking change in the message body:
+Si estás actualizando la documentación, usa `docs`:
 
 ```
-fix!: completely change verification
-
-BREAKING CHANGE: This has to be done because lorem ipsum dolor
+docs: agrega más información a Readme
 ```
 
-#### Pull Request Workflow
+Si, y solo si, estás absolutamente seguro de que deseas realizar un cambio que rompa algo (¡discútelo antes!), agrega un signo de exclamación al tipo y explica el cambio rompedor en el cuerpo del mensaje:
 
-Once you open a Pull Request, it may be reviewed or labeled (or both) until
-the maintainers accept your change. Please be patient, it may take some time
-for this to happen!
+```
+fix!: cambia completamente la verificación
+
+BREAKING CHANGE: Esto debe hacerse porque lorem ipsum dolor
+```
+
+#### Flujo de Pull Request
+
+Una vez que abras una Pull Request, puede ser revisada o etiquetada (o ambas) hasta que
+los mantainers acepten tus cambios. ¡Por favor ten paciencia, esto puede llevar algún tiempo!
