@@ -171,8 +171,8 @@ cargo uninstall rustlings
 
 ## Contribuir
 
-Consulta [CONTRIBUTING.md](https://github.com/rust-lang/RustLangEs/blob/main/CONTRIBUTING.md).
+Consulta [CONTRIBUTING.md](https://github.com/RustLangEs/rustlings/blob/main/CONTRIBUTING.md).
 
 ## Colaboradores ✨
 
-Agradecemos a las maravillosas personas que se encuentran en[AUTHORS.md](https://github.com/rust-lang/RustLangEs/blob/main/AUTHORS.md) 🎉
+Agradecemos a las maravillosas personas que se encuentran en[AUTHORS.md](https://github.com/RustLangEs/rustlings/blob/main/AUTHORS.md) 🎉
