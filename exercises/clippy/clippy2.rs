@@ -1,7 +1,7 @@
 // clippy2.rs
-// 
-// Execute `rustlings hint clippy2` or use the `hint` watch subcommand for a
-// hint.
+//
+// Ejecuta `rustlings hint clippy2` o usa el subcomando `hint` para obtener una
+// pista.
 
 // I AM NOT DONE
 
