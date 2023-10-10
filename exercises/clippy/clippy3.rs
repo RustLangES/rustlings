@@ -19,7 +19,7 @@ fn main() {
     println!("Mi array! Aquí está: {:?}", my_arr);
 
     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);
-    println!("Este Vector está vacío, ves? {:?}", my_empty_vec);
+    println!("Este Vector está vacío, ¿Lo ves? {:?}", my_empty_vec);
 
     let mut value_a = 45;
     let mut value_b = 66;
