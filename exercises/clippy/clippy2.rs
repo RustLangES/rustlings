@@ -3,7 +3,7 @@
 // Ejecuta `rustlings hint clippy2` o usa el subcomando `hint` para obtener una
 // pista.
 
-// NO ESTOY HECHO
+// I AM NOT DONE
 
 fn main() {
     let mut res = 42;

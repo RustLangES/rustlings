@@ -10,7 +10,7 @@
 // Ejecuta `rustlings hint clippy1` o usa el subcomando `hint` para obtener una
 // pista.
 
-// NO ESTOY HECHO
+// I AM NOT DONE
 
 use std::f32;
 

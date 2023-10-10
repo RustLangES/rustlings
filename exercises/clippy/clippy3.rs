@@ -3,7 +3,7 @@
 // Aquí hay un par de correcciones de Clippy más fáciles, para que puedas ver su utilidad.
 // Sin pistas.
 
-// NO ESTOY HECHO
+// I AM NOT DONE
 
 #[allow(unused_variables, unused_assignments)]
 fn main() {
@@ -16,7 +16,7 @@ fn main() {
         -1, -2, -3
         -4, -5, -6
     ];
-    println!("Mi array! Aquí está: {:?}", my_arr);
+    println!("¡Mi array! Aquí está: {:?}", my_arr);
 
     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);
     println!("Este Vector está vacío, ¿Lo ves? {:?}", my_empty_vec);
