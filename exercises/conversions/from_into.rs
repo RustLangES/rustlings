@@ -1,11 +1,11 @@
 // from_into.rs
 //
-// The From trait is used for value-to-value conversions. If From is implemented
-// correctly for a type, the Into trait should work conversely. You can read
-// more about it at https://doc.rust-lang.org/std/convert/trait.From.html
+// El Trait From se utiliza para conversiones de valor a valor. Si From está implementado
+// correctamente para un tipo, el Trait Into debería funcionar a la inversa. Puedes leer
+// más información en https://doc.rust-lang.org/std/convert/trait.From.html
 //
-// Execute `rustlings hint from_into` or use the `hint` watch subcommand for a
-// hint.
+// Ejecuta `rustlings hint from_into` o usa el subcomando watch `hint` para una
+// pista.
 
 #[derive(Debug)]
 struct Person {
@@ -13,8 +13,8 @@ struct Person {
     age: usize,
 }
 
-// We implement the Default trait to use it as a fallback
-// when the provided string is not convertible into a Person object
+// implementamos el Trait Default para utilizarlo como fallback
+// cuando el string proporcionado no es convertible en un objeto Person
 impl Default for Person {
     fn default() -> Person {
         Person {
@@ -24,21 +24,21 @@ impl Default for Person {
     }
 }
 
-// Your task is to complete this implementation in order for the line `let p =
-// Person::from("Mark,20")` to compile Please note that you'll need to parse the
-// age component into a `usize` with something like `"4".parse::<usize>()`. The
-// outcome of this needs to be handled appropriately.
+// Tu tarea es completar esta implementación para que la línea `let p =
+// Person::from("Mark,20")` compile Ten en cuenta que tendrá que parsear el
+// componente age en un `usize` con algo como `"4".parse::<usize>()`. El
+// resultado de esto necesita ser manejado apropiadamente.
 //
-// Steps:
-// 1. If the length of the provided string is 0, then return the default of
+// Pasos:
+// 1. Si la longitud del String proporcionado es 0, entonces devuelve el valor Default de
 //    Person.
-// 2. Split the given string on the commas present in it.
-// 3. Extract the first element from the split operation and use it as the name.
-// 4. If the name is empty, then return the default of Person.
-// 5. Extract the other element from the split operation and parse it into a
-//    `usize` as the age.
-// If while parsing the age, something goes wrong, then return the default of
-// Person Otherwise, then return an instantiated Person object with the results
+// 2. Dividir el String dado en las comas presentes en él.
+// 3. Extraer el primer elemento de la operación de división y utilizarlo como nombre.
+// 4. Si el nombre está vacío, devuelve el Default de Person.
+// 5. Extraer el otro elemento de la operación de división y pasarlo en un
+//    `usize` como el age.
+// Si al parsear el age, algo va mal, entonces ddevuelve el valor Default de
+// Person De lo contrario, devuelve un objeto Person instanciado con los resultados
 
 // I AM NOT DONE
 
@@ -48,9 +48,9 @@ impl From<&str> for Person {
 }
 
 fn main() {
-    // Use the `from` function
+    // Usa la función `from`
     let p1 = Person::from("Mark,20");
-    // Since From is implemented for Person, we should be able to use Into
+    // Dado que From está implementado para Person, deberíamos poder utilizar Into
     let p2: Person = "Gerald,70".into();
     println!("{:?}", p1);
     println!("{:?}", p2);
@@ -61,29 +61,29 @@ mod tests {
     use super::*;
     #[test]
     fn test_default() {
-        // Test that the default person is 30 year old John
+        // Prueba que por defecto es Juan de 30 años
         let dp = Person::default();
         assert_eq!(dp.name, "John");
         assert_eq!(dp.age, 30);
     }
     #[test]
     fn test_bad_convert() {
-        // Test that John is returned when bad string is provided
+        // Comprueba que se devuelve Jhon cuando se proporciona el String incorrecto
         let p = Person::from("");
         assert_eq!(p.name, "John");
         assert_eq!(p.age, 30);
     }
     #[test]
     fn test_good_convert() {
-        // Test that "Mark,20" works
+        // Prueba de que "Mark,20" funciona
         let p = Person::from("Mark,20");
         assert_eq!(p.name, "Mark");
         assert_eq!(p.age, 20);
     }
     #[test]
     fn test_bad_age() {
-        // Test that "Mark,twenty" will return the default person due to an
-        // error in parsing age
+        // Prueba que "Mark,twenty" devolverá la persona por default debido a un
+        // error en el parseo de la edad
         let p = Person::from("Mark,twenty");
         assert_eq!(p.name, "John");
         assert_eq!(p.age, 30);

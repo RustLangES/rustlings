@@ -1,14 +1,14 @@
 // using_as.rs
 //
-// Type casting in Rust is done via the usage of the `as` operator. Please note
-// that the `as` operator is not only used when type casting. It also helps with
-// renaming imports.
+// La conversión de tipos en Rust se realiza mediante el uso del operador `as`. Ten en cuenta
+// que el operador `as` no solo se utiliza cuando se hace una conversión de tipos. También ayuda
+// a renombrar imports.
 //
-// The goal is to make sure that the division does not fail to compile and
-// returns the proper type.
+// El objetivo es asegurarse de que la división no falla al compilar y
+// devuelva el tipo correcto.
 //
-// Execute `rustlings hint using_as` or use the `hint` watch subcommand for a
-// hint.
+// Ejecuta `rustlings hint using_as` o utilica el subcomando watch `hint` para obtener una
+// pista.
 
 // I AM NOT DONE
 
