@@ -1,13 +1,13 @@
 // try_from_into.rs
 //
-// TryFrom is a simple and safe type conversion that may fail in a controlled
-// way under some circumstances. Basically, this is the same as From. The main
-// difference is that this should return a Result type instead of the target
-// type itself. You can read more about it at
+// TryFrom es una conversión de tipos simple y segura que puede fallar de forma
+// controlada en algunas circunstancias. Básicamente, es lo mismo que From. La
+// principal diferencia es que esto debería devolver un tipo de Result en lugar
+// del propio tipo de destino. Puede leer más al respecto en
 // https://doc.rust-lang.org/std/convert/trait.TryFrom.html
 //
-// Execute `rustlings hint try_from_into` or use the `hint` watch subcommand for
-// a hint.
+// Ejecute `rustlings hint try_from_into` o use el subcomando watch `hint`
+// para obtener una pista.
 
 use std::convert::{TryFrom, TryInto};
 
@@ -18,10 +18,10 @@ struct Color {
     blue: u8,
 }
 
-// We will use this error type for these `TryFrom` conversions.
+// Usaremos este tipo de error para estas conversiones `TryFrom`.
 #[derive(Debug, PartialEq)]
 enum IntoColorError {
-    // Incorrect length of slice
+    // Longitud incorrecta del slice
     BadLen,
     // Integer conversion error
     IntConversion,
@@ -29,29 +29,30 @@ enum IntoColorError {
 
 // I AM NOT DONE
 
-// Your task is to complete this implementation and return an Ok result of inner
-// type Color. You need to create an implementation for a tuple of three
-// integers, an array of three integers, and a slice of integers.
+// Tu tarea es completar esta implementación y devolver un Result Ok de tipo interno
+// Color. Necesitas crear una implementación para una tupla de tres enteros,
+// un array de tres enteros, y un slice de enteros.
 //
-// Note that the implementation for tuple and array will be checked at compile
-// time, but the slice implementation needs to check the slice length! Also note
-// that correct RGB color values must be integers in the 0..=255 range.
+// Ten en cuenta que la implementación de tuplas y arrays se comprobará en tiempo
+// de compilación, ¡pero la implementación del slice necesita comprobar la longitud del slice!
+// También ten en cuenta que los valores correctos del color RGB deben ser enteros
+// en el rango 0..=255.
 
-// Tuple implementation
+// Implementation de la Tupla
 impl TryFrom<(i16, i16, i16)> for Color {
     type Error = IntoColorError;
     fn try_from(tuple: (i16, i16, i16)) -> Result<Self, Self::Error> {
     }
 }
 
-// Array implementation
+// Implementation del Array
 impl TryFrom<[i16; 3]> for Color {
     type Error = IntoColorError;
     fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
     }
 }
 
-// Slice implementation
+// Implementación del Slice
 impl TryFrom<&[i16]> for Color {
     type Error = IntoColorError;
     fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {
@@ -59,19 +60,19 @@ impl TryFrom<&[i16]> for Color {
 }
 
 fn main() {
-    // Use the `try_from` function
+    // Usa la función `try_from`
     let c1 = Color::try_from((183, 65, 14));
     println!("{:?}", c1);
 
-    // Since TryFrom is implemented for Color, we should be able to use TryInto
+    // Dado que TryFrom está implementado para Color, deberíamos poder utilizar TryInto
     let c2: Result<Color, _> = [183, 65, 14].try_into();
     println!("{:?}", c2);
 
     let v = vec![183, 65, 14];
-    // With slice we should use `try_from` function
+    // Con slice debemos usar la función `try_from`
     let c3 = Color::try_from(&v[..]);
     println!("{:?}", c3);
-    // or take slice within round brackets and use TryInto
+    // o tomar el slice slice entre corchetes y utilizar TryInto
     let c4: Result<Color, _> = (&v[..]).try_into();
     println!("{:?}", c4);
 }
